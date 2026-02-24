@@ -368,3 +368,55 @@ button:disabled {
 .categories {
     animation: fadeIn 0.5s ease;
 }
+/* Стили для вопросов "Кот в мешке" */
+.cat-question {
+    background: linear-gradient(135deg, #ff9800 0%, #f44336 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cat-question::before {
+    content: '🐱';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.cat-question:hover:not(:disabled) {
+    background: linear-gradient(135deg, #ff5722 0%, #d32f2f 100%);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.cat-question.answered {
+    background: #9e9e9e;
+}
+
+/* Стили для текста "Кот в мешке" в ответах */
+.current-answerer.cat-answerer {
+    background-color: #ff9800;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    animation: pulse 1s infinite;
+}
+
+/* Анимация для кота */
+@keyframes catPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+        background: linear-gradient(135deg, #ff5722 0%, #f44336 100%);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cat-question:not(:disabled) {
+    animation: catPulse 2s infinite;
+}
